@@ -8,6 +8,7 @@ mkdir -p ~/.config/polybar/     && ln -f ~/.config/dotfiles/polybar.config      
 FILE="~/.config/nitrogen/bg-saved.cfg"
 if [ ! -f "$FILE" ]; then
   mkdir -p ~/.config/wallpapers/ && ln -f ~/.config/dotfiles/bg.jpg ~/.config/wallpapers/bg.jpg
+  mkdir ~/.config/nitrogen
   echo "[xin_-1]"							> ~/.config/nitrogen/bg-saved.cfg
   echo "file=/home/$USER/.config/wallpapers/bg.jpg"			>> ~/.config/nitrogen/bg-saved.cfg
   echo "mode=5" 							>> ~/.config/nitrogen/bg-saved.cfg
