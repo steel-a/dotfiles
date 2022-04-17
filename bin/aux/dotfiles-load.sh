@@ -7,7 +7,7 @@ mkdir -p ~/.config/nitrogen/ 	&& ln -f ~/.config/dotfiles/nitrogen.cfg 	~/.confi
 mkdir -p ~/.config/gtk-3.0/	&& ln -f ~/.config/dotfiles/gtk-3.0.settings.ini ~/.config/gtk-3.0/settings.ini
 mkdir -p ~/.config/polybar/     && ln -f ~/.config/dotfiles/polybar.config      ~/.config/polybar/config
 
-DIR="~.config/wallpapers/"
+DIR="~/.config/wallpapers/"
 if [ -d "$DIR" ]; then
   ln -f ~/.config/dotfiles/nitrogen.bg-saved.cfg ~/.config/nitrogen/bg-saved.cfg
 else
