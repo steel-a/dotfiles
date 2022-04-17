@@ -47,7 +47,8 @@ export TIMEZONE="America/Sao_Paulo"
   useradd --create-home $USER \
   && usermod --append --groups wheel $USER \
   && echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
-  && runuser -l $USER -c 'git lfs install'
+  && chown -R $USER:$USER /home/$USER/ \
+  && runuser -l $USER -c 'git lfs install' \
   #&& echo "$USER:$PASS" | chpasswd \
 
   ########################
