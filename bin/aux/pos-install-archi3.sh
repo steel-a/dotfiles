@@ -27,7 +27,7 @@ export TIMEZONE="America/Sao_Paulo"
         wget curl git git-lfs neovim \
         openssh \
         tigervnc \
-        i3-gaps gnu-free-fonts ttf-font-awesome xfce4-terminal rofi thunar nitrogen \
+        i3-gaps gnu-free-fonts ttf-font-awesome xfce4-terminal rofi thunar nitrogen firefox \
         xorg-xprop lxappearance \
   &&  rm -rf /var/cache/pacman
         # wine wine-mono wine-gecko winetricks \
@@ -48,7 +48,7 @@ export TIMEZONE="America/Sao_Paulo"
   && usermod --append --groups wheel $USER \
   && echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
   && runuser -l $USER -c 'git lfs install' \
-  && mv /root/files/* /home/$USER/ \
+  && mv /userFiles/* /home/$USER/ && rm -rf /userFiles \
   && chown -R $USER:$USER /home/$USER/ \
   #&& echo "$USER:$PASS" | chpasswd \
 
