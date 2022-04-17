@@ -22,12 +22,12 @@ export TIMEZONE="America/Sao_Paulo"
   &&  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup \
   &&  rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist \
   &&  echo "Fastest mirrors:" && cat /etc/pacman.d/mirrorlist \
-  &&  pacman --noconfirm --needed -S sudo shadow coreutils util-linux procps psmisc base-devel \
+  &&  pacman --noconfirm -S sudo shadow coreutils util-linux procps psmisc base-devel \
         wget curl git git-lfs neovim \
         openssh \
         tigervnc \
-        i3-gaps i3status xterm gnu-free-fonts ttf-font-awesome xfce4-terminal rofi thunar nitrogen \
-        xorg-xprop lxappearance firefox \
+        i3-gaps gnu-free-fonts ttf-font-awesome xfce4-terminal rofi thunar nitrogen \
+        xorg-xprop lxappearance \
   &&  rm -rf /var/cache/pacman
         # wine wine-mono wine-gecko winetricks \
         #  && winetricks winhttp \
