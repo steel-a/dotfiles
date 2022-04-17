@@ -17,7 +17,7 @@ export TIMEZONE="America/Sao_Paulo"
   # PACKAGES Install #
   ####################
   echo "Begin packages install" \
-  &&  echo "ParallelDownloads = 5" >> /etc/pacman.conf \
+  &&  sed -i 's/#ParallelDownloads = [0-9]*/ParallelDownloads = 10/g' /etc/pacman.conf \
   &&  pacman --noconfirm -Syu \
   &&  pacman --noconfirm --needed -S pacman-contrib \
   &&  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup \
