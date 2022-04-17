@@ -17,12 +17,13 @@ export TIMEZONE="America/Sao_Paulo"
   # PACKAGES Install #
   ####################
   echo "Begin packages install" \
+  &&  echo "ParallelDownloads = 5" >> /etc/pacman.conf \
   &&  pacman --noconfirm -Syu \
   &&  pacman --noconfirm --needed -S pacman-contrib \
   &&  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup \
   &&  rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist \
   &&  echo "Fastest mirrors:" && cat /etc/pacman.d/mirrorlist \
-  &&  pacman --noconfirm -S sudo shadow coreutils util-linux procps psmisc base-devel \
+  &&  pacman --noconfirm --needed -S sudo shadow coreutils util-linux procps psmisc base-devel \
         wget curl git git-lfs neovim \
         openssh \
         tigervnc \
