@@ -77,7 +77,7 @@ export TIMEZONE="America/Sao_Paulo"
   #########################
   # Config i3 environment #
   #########################
-  runuser -l $USER -c 'git clone https://github.com/steel-a/dotfiles.git ~/.config/dotfiles && chmod +x ~/.config/dotfiles/bin/*.sh && ~/.config/dotfiles/bin/aux/dotfiles-load.sh'
+  runuser -l $USER -c 'git clone https://github.com/steel-a/dotfiles.git ~/.config/dotfiles && chmod -R +x ~/.config/dotfiles/bin/*.sh && ~/.config/dotfiles/bin/aux/dotfiles-load.sh'
 #  && runuser -l $USER -c 'git clone -b material-black-COLORS https://github.com/rtlewis88/rtl88-Themes.git /home/$USER/rtl88-Themes' \
 #  && cd /home/$USER/rtl88-Themes && mv Material* /usr/share/themes/ && rm -rf /home/$USER/rtl88-Themes \
 #  && rm /usr/share/xsessions/i3-*.desktop \
