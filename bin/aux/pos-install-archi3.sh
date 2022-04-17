@@ -41,7 +41,6 @@ export TIMEZONE="America/Sao_Paulo"
   && locale-gen \
   && ln -sr /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 
-  /bin/bash
   ########
   # User #
   ########
