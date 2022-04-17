@@ -55,8 +55,8 @@ export TIMEZONE="America/Sao_Paulo"
   # polybar
   # picom
   echo "Begin AUR Install" \
-  && runuser -l $USER -c 'export APP=polybar && mkdir -p tmp && cd tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf tmp' \
-  && runuser -l $USER -c 'export APP=picom-ibhagwan-git && mkdir -p tmp && cd tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf tmp' \
+  && runuser -l $USER -c 'export APP=polybar && mkdir -p ~/tmp && cd ~/tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf ~/tmp' \
+  && runuser -l $USER -c 'export APP=picom-ibhagwan-git && mkdir -p ~/tmp && cd ~/tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf ~/tmp' \
   && rm -rf /var/cache/pacman \
   && echo "End AUR Install"
 
@@ -78,7 +78,7 @@ export TIMEZONE="America/Sao_Paulo"
   # Config i3 environment #
   #########################
   runuser -l $USER -c 'git clone https://github.com/steel-a/dotfiles.git ~/.config/dotfiles && chmod -R +x ~/.config/dotfiles/bin/* && ~/.config/dotfiles/bin/aux/dotfiles-load.sh'
-#  && runuser -l $USER -c 'git clone -b material-black-COLORS https://github.com/rtlewis88/rtl88-Themes.git /home/$USER/rtl88-Themes' \
+z\\#  && runuser -l $USER -c 'git clone -b material-black-COLORS https://github.com/rtlewis88/rtl88-Themes.git /home/$USER/rtl88-Themes' \
 #  && cd /home/$USER/rtl88-Themes && mv Material* /usr/share/themes/ && rm -rf /home/$USER/rtl88-Themes \
 #  && rm /usr/share/xsessions/i3-*.desktop \
   #&& echo "End Config i3 environment"
