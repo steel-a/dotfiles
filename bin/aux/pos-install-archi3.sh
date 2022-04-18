@@ -27,7 +27,8 @@ export TIMEZONE="America/Sao_Paulo"
         openssh \
         tigervnc \
         i3-gaps gnu-free-fonts ttf-font-awesome xfce4-terminal rofi thunar nitrogen firefox \
-        xorg-xprop arandr lxappearance \
+        xorg-xprop arandr lxappearance materia-gtk-theme\
+	remmina libvncserver freerdp\
   &&  rm -rf /var/cache/pacman
         # wine wine-mono wine-gecko winetricks \
         #  && winetricks winhttp \
@@ -56,9 +57,11 @@ export TIMEZONE="America/Sao_Paulo"
   ########################
   # polybar
   # picom
+  # apple fonts
   echo "Begin AUR Install" \
   && runuser -l $USER -c 'export APP=polybar && mkdir -p ~/tmp && cd ~/tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf ~/tmp' \
   && runuser -l $USER -c 'export APP=picom-ibhagwan-git && mkdir -p ~/tmp && cd ~/tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf ~/tmp' \
+  && runuser -l $USER -c 'export APP=apple-fonts && mkdir -p ~/tmp && cd ~/tmp && git clone https://aur.archlinux.org/$APP && cd $APP && makepkg -Asicr --noconfirm && cd ../.. && rm -rf ~/tmp' \
   && rm -rf /var/cache/pacman \
   && echo "End AUR Install"
 
