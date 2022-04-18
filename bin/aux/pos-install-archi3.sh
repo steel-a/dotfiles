@@ -6,8 +6,7 @@ export TIMEZONE="America/Sao_Paulo"
   ###################################
   # ENTRYPOINT IF ALREADY INSTALLED #
   ###################################
-  FILE=/root/pos-install-archi3.ok
-  if test -f "$FILE"; then
+  if test -f /root/pos-install-archi3.ok; then
     runuser -l $USER -c 'vncserver :0' &
     trap : TERM INT; sleep infinity & wait
   fi
@@ -28,7 +27,7 @@ export TIMEZONE="America/Sao_Paulo"
         openssh \
         tigervnc \
         i3-gaps gnu-free-fonts ttf-font-awesome xfce4-terminal rofi thunar nitrogen firefox \
-        xorg-xprop lxappearance \
+        xorg-xprop arandr lxappearance \
   &&  rm -rf /var/cache/pacman
         # wine wine-mono wine-gecko winetricks \
         #  && winetricks winhttp \
