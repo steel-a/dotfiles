@@ -1,4 +1,4 @@
-#!/bin/basch
+#!/bin/bash
 
 # Test the Arguments
 if [ $# -eq 0 ]
