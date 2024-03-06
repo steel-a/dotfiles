@@ -118,7 +118,7 @@ if [ -f /root/.install/i3 ]; then
   echo "Installing Git"
   apt-get install -y git git-lfs
   runuser -l $USER -c 'git lfs install'
-  runuser -l $USER -c 'ssh-keyscan -t rsa github.com >> /home/$USER/.ssh/known_hosts'
+  runuser -l $USER -c 'ssh-keyscan -t rsa github.com > /home/$USER/.ssh/known_hosts'
 
   echo "Installing i3 packages"
   apt-get install -y i3-wm polybar nitrogen
