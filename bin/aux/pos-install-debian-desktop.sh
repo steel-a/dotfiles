@@ -87,6 +87,7 @@ if [ -f /root/.install/vnc ]; then
 
   echo "Installing TigerVNC"
   apt-get install -y tigervnc-standalone-server
+  runuser -l $USER -c 'ssh-keyscan -t rsa github.com >> /home/$USER/.ssh/known_hosts'
 
   echo "Creating files"
   mkdir -p /home/$USER/.vnc
