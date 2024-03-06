@@ -65,6 +65,11 @@ if [ -f /root/.install/ssh ]; then
   echo "Installing openssh-server"
   apt-get install -y openssh-server
 
+  echo "Creating dir and getting id_rsa files"
+  mkdir -p /home/$USER/.ssh
+  cp /.sshtmp/id_rsa /home/$USER/.ssh/ 2>/dev/null
+  cp /.sshtmp/id_rsa.pub /home/$USER/.ssh/ 2>/dev/null
+  
   echo "Permission to .ssh"
   runuser -l $USER -c 'chmod 0700 /home/$USER/.ssh'
   echo "Permission to authorized_keys"
