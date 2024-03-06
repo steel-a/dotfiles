@@ -98,16 +98,12 @@ if [ -f /root/.install/vnc ]; then
 
   echo '#!/bin/bash'          > /home/$USER/.vnc/xstartup
   echo 'exec i3'             >> /home/$USER/.vnc/xstartup
-
-  echo '#!/bin/bash'                                                > /root/.install/vnc.sh
-  echo 'while :; do vncserver -fg --I-KNOW-THIS-IS-INSECURE; done' >> /root/.install/vnc.sh
-
-  chmod 777 /root/.install/vnc.sh
-  
   chown -R $USER:$USER /home/$USER/
   runuser -l $USER -c 'chmod +x /home/$USER/.vnc/xstartup'
 
-
+  echo '#!/bin/bash'                                                > /root/.install/vnc.sh
+  echo "runuser -l $USER -c 'while :; do vncserver -fg --I-KNOW-THIS-IS-INSECURE; done'" >> /root/.install/vnc.sh
+  
   mv /root/.install/vnc /root/.install/vnc.ok
   echo "VNC config finished"
 fi
