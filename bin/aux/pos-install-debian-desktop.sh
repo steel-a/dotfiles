@@ -19,8 +19,8 @@ if ! [ -f /root/.install/user.ok ]; then
     --uid "1000" \
     "$USER"
   chown -R $USER:$USER /home/$USER
-  echo "root:123456" | chpasswd
-  echo "$USER:123456" | chpasswd
+  #echo "root:123456" | chpasswd
+  #echo "$USER:123456" | chpasswd
 
   echo "Installing Sudo"
   apt-get install -y sudo
@@ -68,7 +68,7 @@ if [ -f /root/.install/ssh ]; then
   echo "Permission to authorized_keys"
   ls -lah /home/$USER/.ssh/
   chmod 600 /home/$USER/.ssh/authorized_keys
-  echo "Extra permission"
+  echo "Extra permission in /var/run/sshd"
   mkdir -p -m0755 /var/run/sshd
   echo "Creating ssh.ok"  
   mv /root/.install/ssh /root/.install/ssh.ok
