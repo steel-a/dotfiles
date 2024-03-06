@@ -27,6 +27,7 @@ if ! [ -f /root/.install/user.ok ]; then
   echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
   echo "Adding user to groups sudo and wheel"
+  groupadd wheel
   usermod -aG sudo $USER
   usermod -aG wheel $USER
 
