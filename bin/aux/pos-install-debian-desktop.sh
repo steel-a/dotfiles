@@ -115,12 +115,18 @@ fi
 #    i3-wm    #
 ################
 if [ -f /root/.install/vnc ]; then
+  echo "Installing Git"
   apt-get install -y git git-lfs
   runuser -l $USER -c 'git lfs install'
+
+  echo "Installing i3 packages"
   apt-get install -y i3-wm polybar nitrogen
 
+  echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
+  echo "Changing permission to +exec"
   runuser -l $USER -c 'chmod -R +x /home/$USER/.config/dotfiles/bin/*'
+  echo "Loading dotfiles"
   runuser -l $USER -c '/home/$USER/.config/dotfiles/bin/aux/dotfiles-load.sh'
    
 
