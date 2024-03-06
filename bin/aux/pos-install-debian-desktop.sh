@@ -68,7 +68,6 @@ if [ -f /root/.install/ssh ]; then
   echo "Permission to .ssh"
   runuser -l $USER -c 'chmod 0700 /home/$USER/.ssh'
   echo "Permission to authorized_keys"
-  ls -lah /home/$USER/.ssh/
   runuser -l $USER -c 'chmod 600 /home/$USER/.ssh/*'
   echo "Extra permission in /var/run/sshd"
   mkdir -p -m0755 /var/run/sshd
@@ -137,5 +136,4 @@ if [ -f /root/.install/i3 ]; then
 
   mv /root/.install/i3 /root/.install/i3.ok
   echo "i3 config finished"
-  runuser -l $USER -c 'ls -lah /home/$USER/.ssh/'
 fi
