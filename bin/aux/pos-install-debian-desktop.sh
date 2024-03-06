@@ -124,7 +124,7 @@ if [ -f /root/.install/i3 ]; then
   apt-get install -y i3-wm polybar nitrogen
 
   echo "Clonning git repo"
-  runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
+  runuser -l $USER -c 'git clone https://github.com/steel-a/dotfiles.git /home/$USER/.config/dotfiles'
   echo "Changing permission to +exec"
   runuser -l $USER -c 'chmod -R +x /home/$USER/.config/dotfiles/bin/*'
   echo "Loading dotfiles"
