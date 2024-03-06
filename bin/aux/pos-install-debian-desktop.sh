@@ -69,6 +69,7 @@ if [ -f /root/.install/ssh ]; then
   mkdir -p /home/$USER/.ssh
   cp /.sshtmp/id_rsa /home/$USER/.ssh/ 2>/dev/null
   cp /.sshtmp/id_rsa.pub /home/$USER/.ssh/ 2>/dev/null
+  chown -R $USER:$USER /home/$USER
   
   echo "Permission to .ssh"
   runuser -l $USER -c 'chmod 0700 /home/$USER/.ssh'
@@ -79,6 +80,7 @@ if [ -f /root/.install/ssh ]; then
   echo "Creating ssh.ok"  
   mv /root/.install/ssh /root/.install/ssh.ok
   echo "SSH config finished"
+  ls -lah /home/$USER/.ssh/
 fi
 
 
