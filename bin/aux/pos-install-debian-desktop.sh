@@ -33,25 +33,25 @@ fi
 #    SSH       #
 ################
 if [ -f /root/.install/ssh ]; then
-  echo "AuthorizedKeysFile      .ssh/authorized_keys"      > /etc/ssh/sshd_config \
-  echo "MaxAuthTries 3"                                    >> /etc/ssh/sshd_config \
-  echo "LoginGraceTime 20"                                 >> /etc/ssh/sshd_config \
-  echo "AllowAgentForwarding no"                           >> /etc/ssh/sshd_config \
-  echo "AllowTcpForwarding yes"                            >> /etc/ssh/sshd_config \
-  echo "PermitTunnel no"                                   >> /etc/ssh/sshd_config \
-  echo "GatewayPorts no"                                   >> /etc/ssh/sshd_config \
-  echo "X11Forwarding yes"                                 >> /etc/ssh/sshd_config \
-  echo "PermitRootLogin no"                                >> /etc/ssh/sshd_config \
-  echo "PasswordAuthentication no"                         >> /etc/ssh/sshd_config \
-  echo "PermitEmptyPasswords no"                           >> /etc/ssh/sshd_config \
-  echo "ChallengeResponseAuthentication no"                >> /etc/ssh/sshd_config \
-  echo "KerberosAuthentication no"                         >> /etc/ssh/sshd_config \
-  echo "GSSAPIAuthentication no"                           >> /etc/ssh/sshd_config \
-  echo "PermitUserEnvironment no"                          >> /etc/ssh/sshd_config \
-  echo "Protocol 2"                                        >> /etc/ssh/sshd_config \
-  echo "UsePAM no"                                         >> /etc/ssh/sshd_config \
-  echo "PrintMotd no"                                      >> /etc/ssh/sshd_config \
-  echo "PrintLastLog yes"                                  >> /etc/ssh/sshd_config \
+  echo "AuthorizedKeysFile      .ssh/authorized_keys"       > /etc/ssh/sshd_config 
+  echo "MaxAuthTries 3"                                    >> /etc/ssh/sshd_config 
+  echo "LoginGraceTime 20"                                 >> /etc/ssh/sshd_config 
+  echo "AllowAgentForwarding no"                           >> /etc/ssh/sshd_config 
+  echo "AllowTcpForwarding yes"                            >> /etc/ssh/sshd_config 
+  echo "PermitTunnel no"                                   >> /etc/ssh/sshd_config 
+  echo "GatewayPorts no"                                   >> /etc/ssh/sshd_config 
+  echo "X11Forwarding yes"                                 >> /etc/ssh/sshd_config 
+  echo "PermitRootLogin no"                                >> /etc/ssh/sshd_config 
+  echo "PasswordAuthentication no"                         >> /etc/ssh/sshd_config 
+  echo "PermitEmptyPasswords no"                           >> /etc/ssh/sshd_config 
+  echo "ChallengeResponseAuthentication no"                >> /etc/ssh/sshd_config 
+  echo "KerberosAuthentication no"                         >> /etc/ssh/sshd_config 
+  echo "GSSAPIAuthentication no"                           >> /etc/ssh/sshd_config 
+  echo "PermitUserEnvironment no"                          >> /etc/ssh/sshd_config 
+  echo "Protocol 2"                                        >> /etc/ssh/sshd_config 
+  echo "UsePAM no"                                         >> /etc/ssh/sshd_config 
+  echo "PrintMotd no"                                      >> /etc/ssh/sshd_config 
+  echo "PrintLastLog yes"                                  >> /etc/ssh/sshd_config 
   echo "AllowUsers $USER"                                  >> /etc/ssh/sshd_config
   apt-get install -y openssh-server
   chmod 0700 /home/$USER/.ssh
