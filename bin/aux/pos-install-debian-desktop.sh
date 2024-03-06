@@ -68,7 +68,7 @@ if [ -f /root/.install/ssh ]; then
   chmod 0700 /home/$USER/.ssh
   echo "Permission to authorized_keys"
   ls -lah /home/$USER/.ssh/
-  chmod 600 /home/$USER/.ssh/authorized_keys
+  chmod 600 /home/$USER/.ssh/*
   echo "Extra permission in /var/run/sshd"
   mkdir -p -m0755 /var/run/sshd
   echo "SSH Keygen"
