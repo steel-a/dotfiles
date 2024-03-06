@@ -87,7 +87,6 @@ if [ -f /root/.install/vnc ]; then
 
   echo "Installing TigerVNC"
   apt-get install -y tigervnc-standalone-server
-  runuser -l $USER -c 'ssh-keyscan -t rsa github.com >> /home/$USER/.ssh/known_hosts'
 
   echo "Creating files"
   mkdir -p /home/$USER/.vnc
@@ -119,6 +118,7 @@ if [ -f /root/.install/i3 ]; then
   echo "Installing Git"
   apt-get install -y git git-lfs
   runuser -l $USER -c 'git lfs install'
+  runuser -l $USER -c 'ssh-keyscan -t rsa github.com >> /home/$USER/.ssh/known_hosts'
 
   echo "Installing i3 packages"
   apt-get install -y i3-wm polybar nitrogen
