@@ -70,6 +70,8 @@ if [ -f /root/.install/ssh ]; then
   chmod 600 /home/$USER/.ssh/authorized_keys
   echo "Extra permission in /var/run/sshd"
   mkdir -p -m0755 /var/run/sshd
+  echo "SSH Keygen"
+  ssh-keygen -A
   echo "Creating ssh.ok"  
   mv /root/.install/ssh /root/.install/ssh.ok
   echo "SSH config finished"
