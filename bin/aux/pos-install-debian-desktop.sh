@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Test the Arguments
-if [ $# -eq 0 ]
+if [ $# -lt 2 ]
   then
-    echo "No arguments supplied"
+    echo "Its necessary 2 arguments"
     exit 1
 fi
 USER=$1
+UID=$2
 
 #########################
 #   Create the user     #
@@ -16,7 +17,7 @@ if ! [ -f /root/.install/user.ok ]; then
   adduser \
     --disabled-password \
     --gecos "" \
-    --uid "1000" \
+    --uid "$UID" \
     "$USER"
   chown -R $USER:$USER /home/$USER
   #echo "root:123456" | chpasswd
@@ -75,4 +76,37 @@ if [ -f /root/.install/ssh ]; then
   echo "Creating ssh.ok"  
   mv /root/.install/ssh /root/.install/ssh.ok
   echo "SSH config finished"
+fi
+
+
+
+################
+#    VNC       #
+################
+if [ -f /root/.install/vnc ]; then
+
+  echo "Installing TigerVNC"
+  apt-get install -y tigervnc-standalone-server
+
+  echo "Creating files"
+  mkdir -p /home/$USER/.vnc
+  echo 'securitytypes=None'  >/home/$USER/.vnc/config
+  echo 'desktop=sandbox'     >> /home/$USER/.vnc/config
+  echo 'geometry=1366x768'   >>/home/$USER/.vnc/config
+  echo 'localhost=no'        >> /home/$USER/.vnc/config
+  echo 'alwaysshared'        >> /home/$USER/.vnc/config
+
+  echo '#!/bin/bash'          > /home/$USER/.vnc/xstartup
+  echo 'exec i3'             >> /home/$USER/.vnc/xstartup
+
+  echo '#!/bin/bash'                                                > /root/.install/vnc.sh
+  echo 'while :; do vncserver -fg --I-KNOW-THIS-IS-INSECURE; done' >> /root/.install/vnc.sh
+  chmod +x /root/.install/vnc.sh
+  
+  chown -R $USER:$USER /home/$USER/
+  runuser -l $USER -c 'chmod +x /home/$USER/.vnc/xstartup'
+
+
+  mv /root/.install/vnc /root/.install/vnc.ok
+  echo "VNC config finished"
 fi
