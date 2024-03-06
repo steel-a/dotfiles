@@ -30,7 +30,8 @@ if ! [ -f /root/.install/user.ok ]; then
   usermod -aG sudo $USER
   usermod -aG wheel $USER
 
-touch /root/.install/user.ok
+  echo "User creation finished"
+  touch /root/.install/user.ok
 fi
 
 ################
@@ -65,6 +66,7 @@ if [ -f /root/.install/ssh ]; then
   chmod 0700 /home/$USER/.ssh
   echo "Permission to authorized_keys"
   chmod 600 /home/$USER/.ssh/authorized_keys
-  
+  echo "Creating ssh.ok"  
   mv /root/.install/ssh /root/.install/ssh.ok
+  echo "SSH config finished"
 fi
