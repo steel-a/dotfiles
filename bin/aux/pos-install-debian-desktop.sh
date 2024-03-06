@@ -64,6 +64,7 @@ if [ -f /root/.install/ssh ]; then
 
   echo "Installing openssh-server"
   apt-get install -y openssh-server
+
   echo "Permission to .ssh"
   runuser -l $USER -c 'chmod 0700 /home/$USER/.ssh'
   echo "Permission to authorized_keys"
@@ -123,6 +124,11 @@ if [ -f /root/.install/i3 ]; then
 
   echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
+  echo "Verify if Git Clone was sucessfull. If not, do it again with https"
+  if ! [ -f /home/$USER/.config/dotfiles/bin/aux/dotfiles-load.sh ]; then
+    runuser -l $USER -c 'git clone https://github.com/steel-a/dotfiles.git /home/$USER/.config/dotfiles'
+  fi
+  
   echo "Changing permission to +exec"
   runuser -l $USER -c 'chmod -R +x /home/$USER/.config/dotfiles/bin/*'
   echo "Loading dotfiles"
