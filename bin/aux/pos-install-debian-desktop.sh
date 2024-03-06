@@ -108,3 +108,22 @@ if [ -f /root/.install/vnc ]; then
   mv /root/.install/vnc /root/.install/vnc.ok
   echo "VNC config finished"
 fi
+
+
+
+################
+#    i3-wm    #
+################
+if [ -f /root/.install/vnc ]; then
+  apt-get install -y git git-lfs
+  runuser -l $USER -c 'git lfs install'
+  apt-get install -y i3-wm polybar nitrogen
+
+  runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
+  runuser -l $USER -c 'chmod -R +x /home/$USER/.config/dotfiles/bin/*'
+  runuser -l $USER -c '/home/$USER/.config/dotfiles/bin/aux/dotfiles-load.sh'
+   
+
+  mv /root/.install/i3 /root/.install/i3.ok
+  echo "i3 config finished"
+fi
