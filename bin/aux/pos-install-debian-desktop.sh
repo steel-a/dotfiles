@@ -101,8 +101,8 @@ if [ -f /root/.install/vnc ]; then
 
   echo '#!/bin/bash'                                                > /root/.install/vnc.sh
   echo 'while :; do vncserver -fg --I-KNOW-THIS-IS-INSECURE; done' >> /root/.install/vnc.sh
-  chown $USER:$USER /root/.install/vnc.sh
-  runuser -l $USER -c 'chmod +x /root/.install/vnc.sh'
+
+  chmod 777 /root/.install/vnc.sh
   
   chown -R $USER:$USER /home/$USER/
   runuser -l $USER -c 'chmod +x /home/$USER/.vnc/xstartup'
