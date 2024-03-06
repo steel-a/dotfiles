@@ -65,6 +65,7 @@ if [ -f /root/.install/ssh ]; then
   echo "Permission to .ssh"
   chmod 0700 /home/$USER/.ssh
   echo "Permission to authorized_keys"
+  ls -lah /home/$USER/.ssh/
   chmod 600 /home/$USER/.ssh/authorized_keys
   echo "Creating ssh.ok"  
   mv /root/.install/ssh /root/.install/ssh.ok
