@@ -114,7 +114,7 @@ fi
 ################
 #    i3-wm    #
 ################
-if [ -f /root/.install/vnc ]; then
+if [ -f /root/.install/i3 ]; then
   echo "Installing Git"
   apt-get install -y git git-lfs
   runuser -l $USER -c 'git lfs install'
