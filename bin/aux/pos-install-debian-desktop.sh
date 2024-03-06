@@ -13,7 +13,7 @@ USER=$1
 #########################
 if ! [ -f /root/.install/user.ok ]; then
   echo "Creating user"
-  RUN adduser \
+  adduser \
     --disabled-password \
     --gecos "" \
     --uid "1000" \
