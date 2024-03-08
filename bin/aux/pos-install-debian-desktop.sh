@@ -24,7 +24,7 @@ if ! [ -f /root/.install/user.ok ]; then
   #echo "$USER:123456" | chpasswd
 
   echo "Installing Sudo"
-  apt-get install -y sudo
+  apt-get install -y --no-install-recommends sudo
   echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
   echo "Adding user to groups sudo and wheel"
@@ -63,7 +63,7 @@ if [ -f /root/.install/ssh ]; then
   echo "AllowUsers $USER"                                  >> /etc/ssh/sshd_config
 
   echo "Installing openssh-server"
-  apt-get install -y openssh-server
+  apt-get install -y --no-install-recommends openssh-server
 
   echo "Creating dir and getting id_rsa files"
   mkdir -p /home/$USER/.ssh
@@ -91,7 +91,7 @@ fi
 if [ -f /root/.install/vnc ]; then
 
   echo "Installing TigerVNC"
-  apt-get install -y tigervnc-standalone-server
+  apt-get install -y --no-install-recommends tigervnc-standalone-server
 
   echo "Creating files"
   mkdir -p /home/$USER/.vnc
@@ -121,12 +121,12 @@ fi
 ################
 if [ -f /root/.install/i3 ]; then
   echo "Installing Git"
-  apt-get install -y git git-lfs
+  apt-get install -y --no-install-recommends git git-lfs
   runuser -l $USER -c 'git lfs install'
   runuser -l $USER -c 'ssh-keyscan -t rsa github.com > /home/$USER/.ssh/known_hosts'
 
   echo "Installing i3 packages"
-  apt-get install -y i3-wm polybar
+  apt-get install -y --no-install-recommends i3-wm polybar
 
   echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
