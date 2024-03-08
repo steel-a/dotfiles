@@ -114,16 +114,25 @@ if [ -f /root/.install/vnc ]; then
   echo "VNC config finished"
 fi
 
+################
+#    Git       #
+################
+if ! [ -f /root/.install/git.ok ]; then
+  echo "Installing Git"
+  apt-get install -y --no-install-recommends git git-lfs
+  runuser -l $USER -c 'git lfs install'
+  runuser -l $USER -c 'ssh-keyscan -t rsa github.com > /home/$USER/.ssh/known_hosts'
+
+  echo "User creation finished"
+  touch /root/.install/git.ok
+fi
+
 
 
 ################
 #    i3-wm    #
 ################
 if [ -f /root/.install/i3 ]; then
-  echo "Installing Git"
-  apt-get install -y --no-install-recommends git git-lfs
-  runuser -l $USER -c 'git lfs install'
-  runuser -l $USER -c 'ssh-keyscan -t rsa github.com > /home/$USER/.ssh/known_hosts'
 
   echo "Installing i3 packages"
   apt-get install -y --no-install-recommends i3-wm polybar
