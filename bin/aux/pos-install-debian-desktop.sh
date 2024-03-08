@@ -126,7 +126,7 @@ if [ -f /root/.install/i3 ]; then
   runuser -l $USER -c 'ssh-keyscan -t rsa github.com > /home/$USER/.ssh/known_hosts'
 
   echo "Installing i3 packages"
-  apt-get install -y i3-wm polybar nitrogen
+  apt-get install -y i3-wm polybar
 
   echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
