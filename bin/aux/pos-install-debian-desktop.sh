@@ -114,6 +114,17 @@ if [ -f /root/.install/vnc ]; then
   echo "VNC config finished"
 fi
 
+########################
+#    Basic packages    #
+########################
+if ! [ -f /root/.install/basic.ok ]; then
+  echo "Installing Basic Packages"
+  apt-get install -y --no-install-recommends ncurses-term
+
+  echo "Basic Packages installation end"
+  touch /root/.install/basic.ok
+fi
+
 ################
 #    Git       #
 ################
@@ -123,7 +134,7 @@ if ! [ -f /root/.install/git.ok ]; then
   runuser -l $USER -c 'git lfs install'
   runuser -l $USER -c 'ssh-keyscan -t rsa github.com > /home/$USER/.ssh/known_hosts'
 
-  echo "User creation finished"
+  echo "Git installation end"
   touch /root/.install/git.ok
 fi
 
