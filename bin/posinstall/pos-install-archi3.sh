@@ -83,7 +83,7 @@ export TIMEZONE="America/Sao_Paulo"
   # Config i3 environment #
   #########################
   # Config
-  runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git ~/.config/dotfiles && chmod -R +x ~/.config/dotfiles/bin/* && ~/.config/dotfiles/bin/aux/dotfiles-load.sh'
+  runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git ~/.config/dotfiles && chmod -R +x ~/.config/dotfiles/bin/* && ~/.config/dotfiles/bin/posinstall/dotfiles-load.sh'
   # Themes
   runuser -l $USER -c 'git clone https://github.com/addy-dclxvi/gtk-theme-collections ~/.themes' # Fantone n more
 

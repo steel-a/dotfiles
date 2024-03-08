@@ -151,14 +151,14 @@ if [ -f /root/.install/i3 ]; then
   echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
   echo "Verify if Git Clone was sucessfull. If not, do it again with https"
-  if ! [ -f /home/$USER/.config/dotfiles/bin/aux/dotfiles-load.sh ]; then
+  if ! [ -f /home/$USER/.config/dotfiles/bin/posinstall/dotfiles-load.sh ]; then
     runuser -l $USER -c 'git clone https://github.com/steel-a/dotfiles.git /home/$USER/.config/dotfiles'
   fi
   
   echo "Changing permission to +exec"
   runuser -l $USER -c 'chmod -R +x /home/$USER/.config/dotfiles/bin/*'
   echo "Loading dotfiles"
-  runuser -l $USER -c '/home/$USER/.config/dotfiles/bin/aux/dotfiles-load.sh'
+  runuser -l $USER -c '/home/$USER/.config/dotfiles/bin/posinstall/dotfiles-load.sh'
    
 
   mv /root/.install/i3 /root/.install/i3.ok
