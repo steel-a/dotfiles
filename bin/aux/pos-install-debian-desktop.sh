@@ -119,7 +119,7 @@ fi
 ########################
 if ! [ -f /root/.install/basic.ok ]; then
   echo "Installing Basic Packages"
-  apt-get install -y --no-install-recommends ncurses-term
+  apt-get install -y --no-install-recommends ncurses-term nano
 
   echo "Basic Packages installation end"
   touch /root/.install/basic.ok
