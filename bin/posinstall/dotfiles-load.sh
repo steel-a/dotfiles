@@ -7,6 +7,7 @@ mkdir -p ~/.config/polybar/       && ln -f ~/.config/dotfiles/polybar.config    
 				     ln -f ~/.config/dotfiles/gtkrc-2.0		 	~/.gtkrc-2.0
 mkdir -p ~/.config/xfce4/terminal && ln -f ~/.config/dotfiles/xfce4.terminalrc   	~/.config/xfce4/terminal/terminalrc
 mkdir -p ~/.local		  && ln -s ~/.config/dotfiles/bin                  	~/.local/bin
+mkdir -p ~/.config/nvim		  && ln -f ~/.config/dotfiles/init.vim			~/.config/nvim/init.vim
 
 if [ ! -f ~/.config/nitrogen/bg-saved.cfg ]; then
   mkdir -p ~/.config/wallpapers/ && ln -f ~/.config/dotfiles/bg.jpg ~/.config/wallpapers/bg.jpg
