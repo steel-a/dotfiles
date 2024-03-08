@@ -6,7 +6,7 @@ mkdir -p ~/.config/gtk-3.0/	  && ln -f ~/.config/dotfiles/gtk-3.0.settings.ini 	
 mkdir -p ~/.config/polybar/       && ln -f ~/.config/dotfiles/polybar.config       	~/.config/polybar/config
 				     ln -f ~/.config/dotfiles/gtkrc-2.0		 	~/.gtkrc-2.0
 mkdir -p ~/.config/xfce4/terminal && ln -f ~/.config/dotfiles/xfce4.terminalrc   	~/.config/xfce4/terminal/terminalrc
-				     ln -f ~/.config/dotfiles/bin                  	~/.local/bin
+mkdir -p ~/.local		  && ln -s ~/.config/dotfiles/bin                  	~/.local/bin
 
 if [ ! -f ~/.config/nitrogen/bg-saved.cfg ]; then
   mkdir -p ~/.config/wallpapers/ && ln -f ~/.config/dotfiles/bg.jpg ~/.config/wallpapers/bg.jpg
