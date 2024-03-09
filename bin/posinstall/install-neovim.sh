@@ -10,6 +10,9 @@ cd ~/.virtualenvs
 python3 -m venv debugpy
 debugpy/bin/python -m pip install debugpy
 
+source ~/.bashrc && nvm install --lts && npm install -g pyright
+
+
 echo ""
 echo "#######################################################################"
 echo "Please rum:                                                            "
