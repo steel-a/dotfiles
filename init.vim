@@ -79,9 +79,14 @@ map <C-l> <C-w>l
 nnoremap tp :!python3 %<cr>
 
 lua require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
-nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
-nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
-vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
+"noremap <C-m> :lua require('dap-python').test_method()<CR>
+"noremap <C-s> :lua require('dap-python').test_class()<CR>
+"vnoremap <C-s> <ESC>:lua require('dap-python').debug_selection()<CR>
+noremap <C-c> :lua require'dap'.continue()<CR>
+noremap <C-b> :lua require'dap'.toggle_breakpoint()<CR>
+noremap <C-o> :lua require'dap'.step_over()<CR>
+noremap <C-i> :lua require'dap'.step_into()<CR>
+noremap <C-e> :lua require'dap'.repl.open()<CR>
 """"""""""""""""""""""""""""""
 
 " autocmd """"""""""""""""""""
