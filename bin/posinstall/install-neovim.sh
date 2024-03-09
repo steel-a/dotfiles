@@ -15,9 +15,6 @@ source ~/.bashrc && nvm install --lts && npm install -g pyright
 
 echo ""
 echo "#######################################################################"
-echo "Please rum:                                                            "
-echo "        source ~/.bashrc && nvm install --lts && npm install -g pyright"
-echo "                                                                       "
 echo "Enter nvim and run the commands:                                       "
 echo "        :PlugInstall                                                   "
 echo "        :TSInstall python                                              "
