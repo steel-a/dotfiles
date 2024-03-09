@@ -1,4 +1,4 @@
-" Global Sets """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Global Sets """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on            " Enable syntax highlight
 set nu               " Enable line numbers
 set tabstop=4        " Show existing tab with 4 spaces width
@@ -6,7 +6,7 @@ set softtabstop=4    " Show existing tab with 4 spaces width
 set shiftwidth=4     " When indenting with '>', use 4 spaces width
 set expandtab        " On pressing tab, insert 4 spaces
 set smarttab         " insert tabs on the start of a line according to shiftwidth
-set smartindent      " Automatically inserts one extra level of indentation in some cases
+set smartindent      " Auto inserts 1 extra level of indentation in some cases
 set hidden           " Hides the current buffer when a new file is openned
 set incsearch        " Incremental search
 set ignorecase       " Ingore case in search
@@ -23,10 +23,10 @@ set splitright       " Create the vertical splits to the right
 set splitbelow       " Create the horizontal splits below
 set autoread         " Update vim after file update from outside
 set mouse=a          " Enable mouse support
-filetype on          " Detect and set the filetype option and trigger the FileType Event
+filetype on          " Detect n set the filetype option n trigger the FileType Event
 filetype plugin on   " Load the plugin file for the file type, if any
 filetype indent on   " Load the indent file for the file type, if any
-	
+
 " Guias
 " https://www.manualdocodigo.com.br/vim-basico/
 " https://www.manualdocodigo.com.br/vim-python/
