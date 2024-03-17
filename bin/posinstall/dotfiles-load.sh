@@ -6,6 +6,7 @@ mkdir -p ~/.config/gtk-3.0/	  && ln -f ~/.config/dotfiles/gtk-3.0.settings.ini 	
 mkdir -p ~/.config/polybar/       && ln -f ~/.config/dotfiles/polybar.config       	~/.config/polybar/config
 				     ln -f ~/.config/dotfiles/gtkrc-2.0		 	~/.gtkrc-2.0
 mkdir -p ~/.config/xfce4/terminal && ln -f ~/.config/dotfiles/xfce4.terminalrc   	~/.config/xfce4/terminal/terminalrc
+unlink ~/.local/bin || true
 mkdir -p ~/.local		  && ln -s ~/.config/dotfiles/bin                  	~/.local/bin
 mkdir -p ~/.config/nvim		  && ln -f ~/.config/dotfiles/init.vim			~/.config/nvim/init.vim
 mkdir -p ~/.config/alacritty	  && ln -f ~/.config/dotfiles/alacritty.yml		~/.config/alacritty/alacritty.yml
