@@ -146,7 +146,7 @@ fi
 if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
-  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils alacritty
+  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils xterm
 
   echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
