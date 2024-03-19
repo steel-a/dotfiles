@@ -119,7 +119,7 @@ fi
 ########################
 if ! [ -f /root/.install/basic.ok ]; then
   echo "Installing Basic Packages"
-  apt-get install -y --no-install-recommends ncurses-term nano
+  apt-get install -y --no-install-recommends ncurses-term nano wget
 
   echo "Basic Packages installation end"
   touch /root/.install/basic.ok
@@ -146,7 +146,14 @@ fi
 if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
-  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils alacritty fonts-font-awesome lf firefox-esr
+  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils alacritty fonts-font-awesome lf firefox-esr psmisc
+
+  (mkdir -p /usr/share/fonts/truetype \
+   && cd /usr/share/fonts/truetype \
+   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Iosevka/Regular/IosevkaNerdFont-Regular.ttf \
+   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/BitstreamVeraSansMono/Regular/BitstromWeraNerdFont-Regular.ttf \
+   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Inconsolata/InconsolataNerdFont-Regular.ttf \
+   && fc-cache -fv)
 
   echo "Clonning git repo"
   runuser -l $USER -c 'git clone git@github.com:steel-a/dotfiles.git /home/$USER/.config/dotfiles'
