@@ -119,7 +119,7 @@ fi
 ########################
 if ! [ -f /root/.install/basic.ok ]; then
   echo "Installing Basic Packages"
-  apt-get install -y --no-install-recommends ncurses-term nano wget
+  apt-get install -y --no-install-recommends ncurses-term nano wget psmisc
 
   echo "Basic Packages installation end"
   touch /root/.install/basic.ok
@@ -146,7 +146,7 @@ fi
 if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
-  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils alacritty fonts-font-awesome lf firefox-esr psmisc
+  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils alacritty fonts-font-awesome lf firefox-esr mousepad
 
   (mkdir -p /usr/share/fonts/truetype \
    && cd /usr/share/fonts/truetype \
