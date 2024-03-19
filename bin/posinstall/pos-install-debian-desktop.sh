@@ -97,7 +97,7 @@ if [ -f /root/.install/vnc ]; then
   mkdir -p /home/$USER/.vnc
   echo 'securitytypes=None'  >/home/$USER/.vnc/config
   echo 'desktop=sandbox'     >> /home/$USER/.vnc/config
-  echo 'geometry=1366x768'   >>/home/$USER/.vnc/config
+  echo 'geometry=1920x1080'   >>/home/$USER/.vnc/config
   echo 'localhost=no'        >> /home/$USER/.vnc/config
   echo 'alwaysshared'        >> /home/$USER/.vnc/config
 
@@ -146,7 +146,7 @@ fi
 if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
-  apt-get install -y --no-install-recommends i3-wm polybar nitrogen mesa-utils alacritty fonts-font-awesome lf firefox-esr mousepad
+  apt-get install -y --no-install-recommends i3-wm polybar picom nitrogen mesa-utils alacritty fonts-font-awesome lf firefox-esr mousepad
 
   (mkdir -p /usr/share/fonts/truetype \
    && cd /usr/share/fonts/truetype \
