@@ -150,9 +150,7 @@ if [ -f /root/.install/i3 ]; then
 
   (mkdir -p /usr/share/fonts/truetype \
    && cd /usr/share/fonts/truetype \
-   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Iosevka/Regular/IosevkaNerdFont-Regular.ttf \
-   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/BitstreamVeraSansMono/Regular/BitstromWeraNerdFont-Regular.ttf \
-   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Inconsolata/InconsolataNerdFont-Regular.ttf \
+   && wget https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Inconsolata/InconsolataNerdFontMono-Regular.ttf \
    && fc-cache -fv)
 
   echo "Clonning git repo"
