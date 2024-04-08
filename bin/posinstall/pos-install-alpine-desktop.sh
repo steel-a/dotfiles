@@ -14,14 +14,15 @@ UID=$2
 #########################
 if ! [ -f /root/.install/user.ok ]; then
   echo "Creating user"
+  apk add pwgen
   adduser \
     --disabled-password \
     --gecos "" \
     --uid "$UID" \
     "$USER"
   chown -R $USER:$USER /home/$USER
-  #echo "root:123456" | chpasswd
-  #echo "$USER:123456" | chpasswd
+  echo "root:$(pwgen 50 1)" | chpasswd
+  echo "$USER:$(pwgen 50 1)" | chpasswd
 
   echo "Installing Sudo"
   apk add sudo
