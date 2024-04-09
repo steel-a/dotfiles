@@ -9,6 +9,25 @@ fi
 USER=$1
 UID=$2
 
+
+#########################
+#     Basic Packages    #
+#########################
+if ! [ -f /root/.install/basic.ok ]; then
+  echo "Installing basic stuff"
+
+  apk add --no-cache --update tzdata && rm -rf /var/cache/* && mkdir /var/cache/apk \
+  && ln -snf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "America/Sao_Paulo" > /etc/timezone
+  sed -i 's/\/v[0-9]\.[0-9]*\//\/latest-stable\//g' /etc/apk/repositories
+
+  apk add --update nano wget psmisc
+
+  echo "Basic Stuff creation end"
+  touch /root/.install/basic.ok
+fi
+
+
+
 #########################
 #   Create the user     #
 #########################
@@ -117,17 +136,6 @@ if [ -f /root/.install/vnc ]; then
   echo "VNC config finished"
 fi
 
-########################
-#    Basic packages    #
-########################
-if ! [ -f /root/.install/basic.ok ]; then
-  echo "Installing Basic Packages"
-  apk add nano wget psmisc
-
-  echo "Basic Packages installation end"
-  touch /root/.install/basic.ok
-fi
-
 ################
 #    Git       #
 ################
@@ -149,7 +157,7 @@ fi
 if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
-  apk add i3wm polybar picom feh mesa-utils alacritty font-awesome lf firefox
+  apk add i3wm polybar picom rofi xterm feh mesa-utils font-awesome lf firefox
 
   (mkdir -p /usr/share/fonts/truetype \
    && cd /usr/share/fonts/truetype \
