@@ -149,7 +149,7 @@ fi
 if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
-  apk add i3wm polybar picom mesa-utils alacritty font-awesome lf firefox
+  apk add i3wm polybar picom feh mesa-utils alacritty font-awesome lf firefox
 
   (mkdir -p /usr/share/fonts/truetype \
    && cd /usr/share/fonts/truetype \
