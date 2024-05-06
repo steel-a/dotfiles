@@ -16,7 +16,7 @@ UID=$2
 if ! [ -f /root/.install/basic.ok ]; then
   echo "Installing basic stuff"
 
-  apk add --no-cache --update tzdata && rm -rf /var/cache/* && mkdir /var/cache/apk \
+  apk add --no-cache --update --upgrade tzdata && rm -rf /var/cache/* && mkdir /var/cache/apk \
   && ln -snf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "America/Sao_Paulo" > /etc/timezone
   sed -i 's/\/v[0-9]\.[0-9]*\//\/latest-stable\//g' /etc/apk/repositories
 
@@ -158,6 +158,7 @@ if [ -f /root/.install/i3 ]; then
 
   echo "Installing i3 packages"
   apk add i3wm polybar picom rofi xterm feh mesa-utils font-awesome lf firefox
+  apk add fontconfig ttf-freefont font-noto terminus-font && sudo fc-cache -f
 
   (mkdir -p /usr/share/fonts/truetype \
    && cd /usr/share/fonts/truetype \
